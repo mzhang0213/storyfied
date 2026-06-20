@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# build output / packaged extension
+dist/
+*.zip
+
+# env / secrets
+.env
+.env.*
+*.local
+
+# vercel
+.vercel/
+
+# editors / IDE
+.idea/
+.vscode/
+storyfied.iml
+
+# os / logs
+.DS_Store
+*.log
+npm-debug.log*
+
+DEPLOY.md

@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storyfied - concept</title>
+    <meta
+      name="description"
+      content="Storyfied turns any ticket into an AI-ready brief. A Chrome extension for GitHub Projects, Azure DevOps, Jira and more."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #2f6bff;
+        --blue-deep: #1e3fa8;
+        --cyan: #8fd9ec;
+        --yellow: #ffd23f;
+        --pink: #f6b0aa;
+        --green: #46b06a;
+        --ink: #14182b;
+        --line: #14182b;
+        --paper: #ffffff;
+        --soft: 0 10px 30px rgba(12, 22, 60, 0.18);
+        --r: 22px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Space Mono', monospace;
+        color: var(--ink);
+        background: var(--blue);
+        line-height: 1.55;
+        padding: 36px 24px;
+      }
+
+      .wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      /* ---- soft rounded window cards ---- */
+      .card {
+        background: var(--paper);
+        border: 2px solid var(--line);
+        border-radius: var(--r);
+        box-shadow: var(--soft);
+        overflow: hidden;
+      }
+
+      .titlebar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--cyan);
+        border-bottom: 2px solid var(--line);
+        padding: 11px 18px;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+      .dots {
+        display: flex;
+        gap: 7px;
+      }
+      .dot {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        border: 2px solid var(--line);
+      }
+      .dot.r {
+        background: var(--pink);
+      }
+      .dot.y {
+        background: var(--yellow);
+      }
+      .dot.g {
+        background: var(--green);
+      }
+
+      .pad {
+        padding: 34px 38px;
+      }
+
+      /* ---- hero ---- */
+      .hero h1 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: clamp(46px, 9vw, 100px);
+        line-height: 0.92;
+        margin: 0 0 18px;
+        letter-spacing: -0.02em;
+      }
+      .hero .tag {
+        font-size: 17px;
+        max-width: 600px;
+        margin: 0 0 26px;
+      }
+      .flow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .chip {
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 18px;
+        background: var(--yellow);
+      }
+      .chip.blue {
+        background: var(--blue);
+        color: #fff;
+      }
+      .chip.cyan {
+        background: var(--cyan);
+      }
+      .arrow {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 20px;
+        opacity: 0.55;
+      }
+
+      /* ---- section heading ---- */
+      h2.sec {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 28px;
+        margin: 0 0 8px;
+        letter-spacing: -0.01em;
+      }
+      .lead {
+        font-size: 15px;
+        margin: 0 0 26px;
+        max-width: 720px;
+      }
+
+      /* ---- steps ---- */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 18px;
+      }
+      .step {
+        border: 2px solid var(--line);
+        border-radius: 16px;
+        padding: 20px 18px;
+        background: #fbfcff;
+      }
+      .step .n {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--blue);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 16px;
+        margin-bottom: 12px;
+        border: 2px solid var(--line);
+      }
+      .step:nth-child(2) .n {
+        background: var(--yellow);
+        color: var(--ink);
+      }
+      .step:nth-child(3) .n {
+        background: var(--cyan);
+        color: var(--ink);
+      }
+      .step:nth-child(4) .n {
+        background: var(--pink);
+        color: var(--ink);
+      }
+      .step h3 {
+        margin: 0 0 6px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .step p {
+        margin: 0;
+        font-size: 13px;
+      }
+
+      /* ---- popup demo (centered, below the copy) ---- */
+      .demo {
+        max-width: 360px;
+        margin: 30px auto 0;
+        border: 2px solid var(--line);
+        border-radius: 16px;
+        box-shadow: var(--soft);
+        overflow: hidden;
+        background: var(--paper);
+      }
+      .demo .dtop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--cyan);
+        border-bottom: 2px solid var(--line);
+        padding: 9px 14px;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .demo .row {
+        padding: 10px 16px;
+      }
+      .demo .row + .row {
+        border-top: 1px solid #e7ebf5;
+      }
+      .demo .lbl {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        border-left: 4px solid;
+        padding-left: 8px;
+        margin-bottom: 6px;
+      }
+      .demo .val {
+        border: 2px solid var(--line);
+        border-radius: 8px;
+        padding: 7px 9px;
+        font-size: 12px;
+        background: #fbfcff;
+      }
+      .demo .copy {
+        background: var(--blue);
+        color: #fff;
+        text-align: center;
+        font-weight: 700;
+        padding: 13px;
+        border-top: 2px solid var(--line);
+        font-size: 13px;
+      }
+
+      /* ---- features ---- */
+      .feats {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .feat {
+        border: 2px solid var(--line);
+        border-radius: 16px;
+        padding: 20px;
+        background: #fbfcff;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 14px;
+        row-gap: 8px;
+        align-items: center;
+      }
+      .feat .ic {
+        width: 34px;
+        height: 34px;
+        border: 2px solid var(--line);
+        border-radius: 10px;
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .feat:nth-child(1) .ic {
+        background: var(--blue);
+      }
+      .feat:nth-child(2) .ic {
+        background: var(--yellow);
+      }
+      .feat:nth-child(3) .ic {
+        background: var(--cyan);
+        border-radius: 50%;
+      }
+      .feat:nth-child(4) .ic {
+        background: var(--pink);
+      }
+      .feat:nth-child(5) .ic {
+        background: var(--green);
+        transform: rotate(45deg);
+      }
+      .feat:nth-child(6) .ic {
+        background: var(--paper);
+      }
+      .feat strong {
+        grid-row: 1;
+        grid-column: 2;
+        font-size: 14px;
+      }
+      .feat span {
+        grid-column: 1 / -1;
+        font-size: 13px;
+      }
+
+      /* ---- install ---- */
+      .install-steps {
+        list-style: none;
+        counter-reset: ins;
+        margin: 0 0 28px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 640px;
+      }
+      .install-steps li {
+        counter-increment: ins;
+        position: relative;
+        padding: 12px 16px 12px 54px;
+        border: 2px solid var(--line);
+        border-radius: 14px;
+        background: #fbfcff;
+        font-size: 14px;
+      }
+      .install-steps li::before {
+        content: counter(ins);
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid var(--line);
+        background: var(--yellow);
+        display: grid;
+        place-items: center;
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 13px;
+      }
+      .install-steps code {
+        background: #eef1fb;
+        border: 1px solid #d7ddf0;
+        border-radius: 6px;
+        padding: 1px 6px;
+        font-size: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--blue);
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+        padding: 16px 30px;
+        border: 2px solid var(--line);
+        border-radius: 16px;
+        box-shadow: var(--soft);
+        transition: transform 0.08s ease, box-shadow 0.08s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 34px rgba(12, 22, 60, 0.26);
+      }
+      .btn .ar {
+        font-size: 20px;
+      }
+      .btn-note {
+        margin: 12px 0 0;
+        font-size: 12px;
+        opacity: 0.7;
+      }
+      .alert {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: #fff6da;
+        border: 2px solid var(--line);
+        border-radius: 14px;
+        padding: 14px 18px;
+        margin: 0 0 26px;
+        max-width: 640px;
+      }
+      .alert svg {
+        flex-shrink: 0;
+      }
+      .alert .at-text {
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .alert .at-text b {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- HERO -->
+      <section class="card hero">
+        <div class="titlebar">
+          <span>Storyfied</span>
+          <div class="dots">
+            <span class="dot r"></span>
+            <span class="dot y"></span>
+            <span class="dot g"></span>
+          </div>
+        </div>
+        <div class="pad">
+          <h1>Storyfied</h1>
+          <p class="tag">
+            Turn any messy ticket into a clean, AI-ready brief - in one click.
+            Built for GitHub Projects, Azure DevOps, Jira, and any board you use.
+          </p>
+          <div class="flow">
+            <span class="chip cyan">Any ticket</span>
+            <span class="arrow">→</span>
+            <span class="chip">AI processes it</span>
+            <span class="arrow">→</span>
+            <span class="chip blue">Paste into your AI agent</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="card">
+        <div class="titlebar">
+          <span>The How</span>
+          <div class="dots"><span class="dot y"></span><span class="dot g"></span></div>
+        </div>
+        <div class="pad">
+          <div class="steps">
+            <div class="step">
+              <span class="n">1</span>
+              <h3>Open a ticket</h3>
+              <p>On any board, open the ticket you want to work on and click the Storyfied icon.</p>
+            </div>
+            <div class="step">
+              <span class="n">2</span>
+              <h3>It reads the ticket</h3>
+              <p>Storyfied scrapes the page - title, body, labels, priority, size, status, the lot.</p>
+            </div>
+            <div class="step">
+              <span class="n">3</span>
+              <h3>AI "storyfies" it</h3>
+              <p>Gemini extracts each field and buffs the description into clear requirements + acceptance criteria.</p>
+            </div>
+            <div class="step">
+              <span class="n">4</span>
+              <h3>Edit &amp; copy</h3>
+              <p>Tweak any field in the popup, then copy a tidy markdown brief ready for your AI agent.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE POPUP -->
+      <section class="card">
+        <div class="titlebar">
+          <span>The popup</span>
+          <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+        </div>
+        <div class="pad">
+          <h2 class="sec">Color-matched, fully editable</h2>
+          <p class="lead">
+            Every field the AI pulls out becomes its own labelled, editable row,
+            so you can correct anything before you copy. Nothing is invented -
+            fields that aren't on the ticket simply stay blank. Hit copy and you
+            get a clean markdown brief, ready to paste straight into an AI chat.
+          </p>
+
+          <div class="demo" aria-hidden="true">
+            <div class="dtop">
+              <span>Storyfied</span>
+              <div class="dots">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="lbl" style="border-color: #7c3aed; color: #7c3aed">Title</div>
+              <div class="val">Tax &amp; tip calculation per diner</div>
+            </div>
+            <div class="row">
+              <div class="lbl" style="border-color: #dc2626; color: #dc2626">Priority</div>
+              <div class="val">P0</div>
+            </div>
+            <div class="row">
+              <div class="lbl" style="border-color: #d97706; color: #d97706">Labels</div>
+              <div class="val">~validate, activity</div>
+            </div>
+            <div class="row">
+              <div class="lbl" style="border-color: #0891b2; color: #0891b2">Status</div>
+              <div class="val">In progress</div>
+            </div>
+            <div class="row">
+              <div class="lbl" style="border-color: #334155; color: #334155">Description</div>
+              <div class="val">As a diner, each person pays only the tax &amp; tip proportional to their own food spend…</div>
+            </div>
+            <div class="copy">📋 Copy to clipboard</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="card">
+        <div class="titlebar">
+          <span>The Why</span>
+          <div class="dots"><span class="dot g"></span><span class="dot y"></span></div>
+        </div>
+        <div class="pad">
+          <div class="feats">
+            <div class="feat">
+              <div class="ic"></div>
+              <strong>A Chrome extension</strong>
+              <span>Lives in your browser toolbar - open a ticket, click the icon, and done.</span>
+            </div>
+            <div class="feat">
+              <div class="ic"></div>
+              <strong>Any board</strong>
+              <span>GitHub Projects, Azure DevOps, Jira, Trello - it reads the page, no API tokens.</span>
+            </div>
+            <div class="feat">
+              <div class="ic"></div>
+              <strong>You stay in control</strong>
+              <span>Review and edit every field before it ever leaves the popup.</span>
+            </div>
+            <div class="feat">
+              <div class="ic"></div>
+              <strong>No made-up data</strong>
+              <span>Missing priority, points or labels stay empty instead of being hallucinated.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTALL -->
+      <section class="card">
+        <div class="titlebar">
+          <span>Install</span>
+          <div class="dots"><span class="dot r"></span><span class="dot g"></span></div>
+        </div>
+        <div class="pad">
+          <h2 class="sec">Get Storyfied in your browser</h2>
+          <p class="lead">Install from the Chrome Web Store - it takes about a minute.</p>
+          <div class="alert" role="note">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="var(--yellow)" stroke="var(--line)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 3 L22 20 H2 Z" />
+              <line x1="12" y1="9.5" x2="12" y2="14" stroke="var(--line)" />
+              <circle cx="12" cy="16.8" r="0.4" fill="var(--line)" stroke="none" />
+            </svg>
+            <span class="at-text"><b>REQUIRED:</b> a Gemini API key - get one for <b>free</b> at
+              <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google AI Studio</a></span>
+          </div>
+          <ol class="install-steps">
+            <li>Click <strong>Add to browser</strong> and confirm <strong>Add extension</strong> in the dialog.</li>
+            <li>Pin the Storyfied icon to your toolbar so it's one click away.</li>
+            <li>Open the extension, go to options, and paste your <strong>Gemini API key</strong>.</li>
+            <li>Open any ticket on your board, click the icon - done.</li>
+          </ol>
+          <a class="btn" href="#">Add to browser <span class="ar">→</span></a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
