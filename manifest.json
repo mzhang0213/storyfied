@@ -5,7 +5,19 @@
   "description": "Reads the ticket you're viewing on any board and uses Gemini to produce an AI-ready, editable summary.",
   "action": {
     "default_popup": "index.html",
-    "default_title": "Storyfy this ticket"
+    "default_title": "Storyfy this ticket",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
   "options_page": "src/options/options.html",
   "background": {

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- rounded app-icon background, same blue as the concept page -->
+  <rect x="0" y="0" width="1024" height="1024" rx="224" fill="#2f6bff"/>
+
+  <g stroke="#14182b" stroke-width="32" stroke-linejoin="round" stroke-linecap="round">
+    <!-- brown cover / binding (sits under the pages, peeks out at the bottom) -->
+    <path fill="#a06a38" d="M512 396
+      C410 334 292 334 186 360
+      L186 742
+      C292 706 410 706 512 766
+      C614 706 732 706 838 742
+      L838 360
+      C732 334 614 334 512 396 Z"/>
+
+    <!-- white pages on top, aligned to the cover's top & side edges -->
+    <path fill="#ffffff" d="M512 396 C410 334 292 334 186 360 L186 690 C292 654 410 654 512 710 Z"/>
+    <path fill="#ffffff" d="M512 396 C614 334 732 334 838 360 L838 690 C732 654 614 654 512 710 Z"/>
+
+    <!-- spine -->
+    <line x1="512" y1="396" x2="512" y2="710"/>
+  </g>
+
+  <!-- text lines on each page (no fill) -->
+  <g stroke="#14182b" stroke-width="15" stroke-linecap="round" fill="none">
+    <!-- left page -->
+    <path d="M239 460 C314 444 424 444 476 482"/>
+    <path d="M239 510 C314 494 424 494 476 532"/>
+    <path d="M239 560 C314 544 424 544 476 582"/>
+    <path d="M239 610 C314 594 424 594 476 632"/>
+    <!-- right page -->
+    <path d="M785 460 C710 444 600 444 548 482"/>
+    <path d="M785 510 C710 494 600 494 548 532"/>
+    <path d="M785 560 C710 544 600 544 548 582"/>
+    <path d="M785 610 C710 594 600 594 548 632"/>
+  </g>
+</svg>
