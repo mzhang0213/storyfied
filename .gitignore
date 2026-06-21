@@ -23,4 +23,6 @@ storyfied.iml
 *.log
 npm-debug.log*
 
+documentation
+
 DEPLOY.md

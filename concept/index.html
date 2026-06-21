@@ -99,6 +99,23 @@
       }
 
       /* ---- hero ---- */
+      .brand-row {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+      .brand-row .logo {
+        width: 92px;
+        height: 92px;
+        border: 2px solid var(--line);
+        border-radius: 22px;
+        box-shadow: var(--soft);
+        flex-shrink: 0;
+      }
+      .brand-row h1 {
+        margin: 0;
+      }
       .hero h1 {
         font-family: 'Archivo Black', sans-serif;
         font-size: clamp(46px, 9vw, 100px);
@@ -421,7 +438,10 @@
           </div>
         </div>
         <div class="pad">
-          <h1>Storyfied</h1>
+          <div class="brand-row">
+            <img class="logo" src="icon-128.png" width="92" height="92" alt="Storyfied icon" />
+            <h1>Storyfied</h1>
+          </div>
           <p class="tag">
             Turn any messy ticket into a clean, AI-ready brief - in one click.
             Built for GitHub Projects, Azure DevOps, Jira, and any board you use.
