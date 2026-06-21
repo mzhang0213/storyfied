@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storyfied — Privacy Policy</title>
+    <meta name="description" content="Privacy policy for the Storyfied Chrome extension." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #2f6bff;
+        --cyan: #8fd9ec;
+        --yellow: #ffd23f;
+        --pink: #f6b0aa;
+        --green: #46b06a;
+        --ink: #14182b;
+        --line: #14182b;
+        --muted: #4a5168;
+        --paper: #ffffff;
+        --soft: 0 10px 30px rgba(12, 22, 60, 0.18);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--blue);
+        color: var(--ink);
+        font-family: 'Space Mono', monospace;
+        line-height: 1.6;
+        padding: 36px 24px;
+      }
+      .doc {
+        max-width: 800px;
+        margin: 0 auto;
+        background: var(--paper);
+        border: 2px solid var(--line);
+        border-radius: 22px;
+        box-shadow: var(--soft);
+        overflow: hidden;
+      }
+      .titlebar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--cyan);
+        border-bottom: 2px solid var(--line);
+        padding: 11px 18px;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+      .dots { display: flex; gap: 7px; }
+      .dot {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        border: 2px solid var(--line);
+      }
+      .dot.r { background: var(--pink); }
+      .dot.y { background: var(--yellow); }
+      .dot.g { background: var(--green); }
+      .pad { padding: 34px 40px 40px; }
+      .home {
+        font-size: 13px;
+        font-weight: 700;
+        margin: 0 0 18px;
+      }
+      h1 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 38px;
+        letter-spacing: -0.02em;
+        margin: 0 0 6px;
+      }
+      .updated {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 26px;
+      }
+      h2 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+        margin: 32px 0 10px;
+        padding-top: 24px;
+        border-top: 2px solid #eef1f8;
+      }
+      h2:first-of-type { border-top: none; padding-top: 0; }
+      p, li { font-size: 14px; }
+      ul { padding-left: 22px; }
+      li { margin-bottom: 6px; }
+      a { color: var(--blue); }
+      code {
+        background: #eef1fb;
+        border: 1px solid #d7ddf0;
+        border-radius: 6px;
+        padding: 1px 6px;
+        font-size: 12px;
+      }
+      .lede {
+        font-size: 14px;
+        background: #fff6da;
+        border: 2px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 20px;
+      }
+      strong { font-weight: 700; }
+      footer {
+        margin-top: 34px;
+        padding-top: 16px;
+        border-top: 2px solid #eef1f8;
+        color: var(--muted);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="doc">
+      <div class="titlebar">
+        <span>Storyfied — Privacy</span>
+        <div class="dots">
+          <span class="dot r"></span>
+          <span class="dot y"></span>
+          <span class="dot g"></span>
+        </div>
+      </div>
+      <div class="pad">
+        <p class="home"><a href="/">&larr; Back to Storyfied</a></p>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: June 20, 2026</p>
+
+        <p class="lede">
+          Storyfied is a browser extension that turns a ticket you are viewing into an
+          AI-ready summary. It runs in your browser, uses your own AI provider key, and
+          does not have any backend server of its own. We do not collect, store, sell,
+          or share your personal data.
+        </p>
+
+        <h2>1. Who this covers</h2>
+        <p>
+          This policy applies to the <strong>Storyfied</strong> Chrome extension ("the
+          extension", "we", "our"). It explains what information the extension handles
+          and how.
+        </p>
+
+        <h2>2. Information the extension handles</h2>
+        <ul>
+          <li>
+            <strong>Ticket / page content.</strong> When you open a ticket on a board
+            (such as GitHub Projects, Azure DevOps, or Jira) and click the extension
+            icon, the extension reads the visible text of that ticket from the current
+            page so it can be summarized. This happens only when you explicitly invoke
+            the extension, and only on the tab you invoke it on.
+          </li>
+          <li>
+            <strong>Your AI provider API key.</strong> You supply your own Google
+            Gemini API key. It is stored locally in your browser and used only to
+            authenticate requests to the AI provider.
+          </li>
+          <li>
+            <strong>Your preferences.</strong> Settings such as the chosen model and any
+            optional custom instructions are stored locally in your browser.
+          </li>
+        </ul>
+        <p>
+          The extension does <strong>not</strong> collect names, email addresses,
+          passwords, browsing history, analytics, or any data from pages you have not
+          explicitly run it on.
+        </p>
+
+        <h2>3. How the information is used</h2>
+        <ul>
+          <li>
+            The ticket text you choose to process is sent to <strong>Google's Gemini
+            API</strong> to generate the structured summary that the extension shows you.
+          </li>
+          <li>
+            Your API key is sent only to Google's Gemini API to authenticate those
+            requests.
+          </li>
+          <li>
+            The generated summary is shown in the extension's popup for you to review and
+            edit, and is copied to your clipboard only when you click "Copy".
+          </li>
+        </ul>
+
+        <h2>4. Where data is stored</h2>
+        <p>
+          Your API key and preferences are stored using your browser's local extension
+          storage (<code>chrome.storage.local</code>) on your own device. We do not
+          operate any server, and we never receive or retain your API key, ticket
+          content, or generated summaries. Ticket text is processed in transit only and
+          is not persisted by the extension after the request completes.
+        </p>
+
+        <h2>5. Third-party services</h2>
+        <p>
+          The extension sends ticket text and your API key to
+          <strong>Google's Gemini API</strong>
+          (<code>generativelanguage.googleapis.com</code>) to perform the summarization.
+          Google's handling of that data is governed by Google's own terms and privacy
+          policy:
+        </p>
+        <ul>
+          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a></li>
+          <li><a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noreferrer">Gemini API Terms of Service</a></li>
+        </ul>
+        <p>
+          This is the only external service the extension contacts. We recommend
+          reviewing Google's terms to understand how API request data is used.
+        </p>
+
+        <h2>6. Data sharing and sale</h2>
+        <p>
+          We do not sell, rent, or share your data with anyone. The only transmission of
+          data is the request you initiate to Google's Gemini API, described above.
+        </p>
+
+        <h2>7. Permissions and why they are needed</h2>
+        <ul>
+          <li><strong>activeTab</strong> — to read the ticket text from the current tab, only when you click the extension icon.</li>
+          <li><strong>scripting</strong> — to run a one-time function on the active tab that reads the visible ticket text.</li>
+          <li><strong>storage</strong> — to save your API key and preferences locally.</li>
+          <li><strong>Host access to generativelanguage.googleapis.com</strong> — to call the Gemini API.</li>
+        </ul>
+
+        <h2>8. Your choices and control</h2>
+        <ul>
+          <li>Nothing is processed until you click the extension on a ticket.</li>
+          <li>You can review and edit every field before copying anything.</li>
+          <li>You can remove your stored API key and preferences at any time from the extension's options, or by removing the extension. Uninstalling deletes all locally stored data.</li>
+        </ul>
+
+        <h2>9. Children</h2>
+        <p>
+          Storyfied is a developer productivity tool and is not directed to children
+          under 13, and we do not knowingly collect information from them.
+        </p>
+
+        <h2>10. Changes to this policy</h2>
+        <p>
+          We may update this policy from time to time. Material changes will be reflected
+          by updating the "Last updated" date above.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>
+          Questions about this policy? Contact us at
+          <a href="mailto:storyfied@mzhang.dev">storyfied@mzhang.dev</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
