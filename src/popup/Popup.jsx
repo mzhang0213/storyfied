@@ -18,7 +18,7 @@ async function scrapeActiveTab() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
   if (!tab?.id) throw new Error('No active tab found.')
 
-  // Restricted pages can't be injected — give a clear message instead of a
+  // Restricted pages can't be injected - give a clear message instead of a
   // cryptic chrome error.
   const url = tab.url || ''
   if (/^(chrome|edge|brave|about|chrome-extension|devtools|view-source):/i.test(url) ||
@@ -100,7 +100,11 @@ export default function Popup() {
     }
   }
 
-  const openOptions = () => chrome.runtime.openOptionsPage()
+  // Open the welcome page scrolled to the API-key setup step. Using tabs.create
+  // (rather than openOptionsPage) lets us target the #setup anchor and is robust
+  // regardless of how the options page is registered.
+  const openOptions = () =>
+    chrome.tabs.create({ url: chrome.runtime.getURL('src/options/options.html#setup') })
 
   return (
     <div className="popup">

@@ -2,7 +2,7 @@
 //
 // This function is INJECTED into the active tab via chrome.scripting.executeScript
 // ({ func: scrapeTicketPage }). Because executeScript serializes the function with
-// .toString() and runs it in the page, it MUST be fully self-contained — it can
+// .toString() and runs it in the page, it MUST be fully self-contained - it can
 // only reference identifiers declared inside its own body, never module-scope
 // imports/constants. Keep everything local.
 //
@@ -17,7 +17,7 @@ export function scrapeTicketPage() {
 
   // Pick the primary ticket region. Ticket metadata (labels, priority, size,
   // status, ...) usually lives in a sidebar column that is a SIBLING of the
-  // body, so we must choose a container broad enough to include it — not the
+  // body, so we must choose a container broad enough to include it - not the
   // narrow issue-body element. Order matters: a side drawer/modal wins (project
   // board item view), then the page's <main> (full-page issue view), then body.
   let region = ''
@@ -30,7 +30,7 @@ export function scrapeTicketPage() {
     const t = textOf(el)
     if (t.length > region.length) region = t
   }
-  if (region.length < 200) region = '' // too small to be the ticket — fall through
+  if (region.length < 200) region = '' // too small to be the ticket - fall through
 
   // 2. Full-page issue/work-item view: <main> spans both the body and sidebar.
   if (!region) {

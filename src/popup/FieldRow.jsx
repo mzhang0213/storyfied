@@ -14,7 +14,7 @@ export default function FieldRow({ field, value, onChange }) {
           style={{ borderColor: color }}
           value={value}
           rows={6}
-          placeholder="—"
+          placeholder="-"
           onChange={(e) => onChange(field.key, e.target.value)}
         />
       ) : (
@@ -22,7 +22,7 @@ export default function FieldRow({ field, value, onChange }) {
           className="field-input"
           style={{ borderColor: color }}
           value={value}
-          placeholder="—"
+          placeholder="-"
           onChange={(e) => onChange(field.key, e.target.value)}
         />
       )}

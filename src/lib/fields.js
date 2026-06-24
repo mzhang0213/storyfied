@@ -1,10 +1,10 @@
 // Canonical field set for a "storyfied" ticket.
 //
-// `key`      — id used in state + the Gemini JSON schema
-// `label`    — display label for the row
-// `color`    — accent color for the label + input border (the "color matched" rows)
-// `type`     — 'text' (single-line <input>) or 'multiline' (<textarea>)
-// `schema`   — JSON-schema fragment for Gemini structured output
+// `key`      - id used in state + the Gemini JSON schema
+// `label`    - display label for the row
+// `color`    - accent color for the label + input border (the "color matched" rows)
+// `type`     - 'text' (single-line <input>) or 'multiline' (<textarea>)
+// `schema`   - JSON-schema fragment for Gemini structured output
 
 export const FIELDS = [
   {
