@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storyfied - Support</title>
+    <meta name="description" content="Support and contact for the Storyfied Chrome extension." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #2f6bff;
+        --cyan: #8fd9ec;
+        --yellow: #ffd23f;
+        --pink: #f6b0aa;
+        --green: #46b06a;
+        --ink: #14182b;
+        --line: #14182b;
+        --muted: #4a5168;
+        --paper: #ffffff;
+        --soft: 0 10px 30px rgba(12, 22, 60, 0.18);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--blue);
+        color: var(--ink);
+        font-family: 'Space Mono', monospace;
+        line-height: 1.6;
+        padding: 36px 24px;
+      }
+      .doc {
+        max-width: 800px;
+        margin: 0 auto;
+        background: var(--paper);
+        border: 2px solid var(--line);
+        border-radius: 22px;
+        box-shadow: var(--soft);
+        overflow: hidden;
+      }
+      .titlebar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--cyan);
+        border-bottom: 2px solid var(--line);
+        padding: 11px 18px;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+      .dots { display: flex; gap: 7px; }
+      .dot {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        border: 2px solid var(--line);
+      }
+      .dot.r { background: var(--pink); }
+      .dot.y { background: var(--yellow); }
+      .dot.g { background: var(--green); }
+      .pad { padding: 34px 40px 40px; }
+      .home {
+        font-size: 13px;
+        font-weight: 700;
+        margin: 0 0 18px;
+      }
+      h1 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 38px;
+        letter-spacing: -0.02em;
+        margin: 0 0 6px;
+      }
+      .lede {
+        font-size: 15px;
+        background: #eef3ff;
+        border: 2px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 20px;
+        margin: 8px 0 30px;
+      }
+      h2 {
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 20px;
+        letter-spacing: -0.01em;
+        margin: 36px 0 14px;
+        padding-top: 26px;
+        /*border-top: 2px solid #eef1f8;*/
+      }
+      p, li, label { font-size: 14px; }
+      a { color: var(--blue); }
+
+      /* form */
+      form { display: flex; flex-direction: column; gap: 16px; }
+      label { display: flex; flex-direction: column; gap: 7px; font-weight: 700; }
+      input, textarea {
+        font: inherit;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 10px 12px;
+        border: 2px solid var(--line);
+        border-radius: 10px;
+        outline: none;
+        width: 100%;
+        background: #fbfcff;
+      }
+      input:focus, textarea:focus {
+        box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.18);
+      }
+      textarea { resize: vertical; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+      button.primary, a.btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--blue);
+        color: #fff;
+        text-decoration: none;
+        border: 2px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 22px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: var(--soft);
+      }
+      button.primary:hover, a.btn:hover { background: #2257d6; }
+      a.btn.alt { background: var(--yellow); color: var(--ink); }
+      a.btn.alt:hover { background: #f5c012; }
+
+      /* faq */
+      .faq {
+        background: #fff6da;
+        border: 2px solid var(--line);
+        border-radius: 14px;
+        padding: 22px 20px;
+        text-align: center;
+      }
+      .faq .badge {
+        display: inline-block;
+        background: var(--pink);
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 6px 14px;
+        margin-bottom: 10px;
+      }
+      .faq p { margin: 0; color: var(--muted); }
+
+      footer {
+        margin-top: 36px;
+        padding-top: 16px;
+        border-top: 2px solid #eef1f8;
+        color: var(--muted);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="doc">
+      <div class="titlebar">
+        <span>Storyfied - Support</span>
+        <div class="dots">
+          <span class="dot r"></span>
+          <span class="dot y"></span>
+          <span class="dot g"></span>
+        </div>
+      </div>
+      <div class="pad">
+        <p class="home"><a href="/">&larr; Back to Storyfied</a></p>
+        <h1>Support</h1>
+        <p class="lede">
+          Need a hand, hit a bug, or have an idea? Send us a message below and we'll
+          get back to you. You can also email us directly any time.
+        </p>
+
+        <h2>FAQ</h2>
+        <div class="faq">
+          <span class="badge">Coming soon</span>
+          <p>We're putting together answers to common questions. Check back shortly.</p>
+        </div>
+
+        <h2>Send us a message</h2>
+        <form id="support-form">
+          <label>
+            Subject
+            <input id="subject" type="text" placeholder="What's this about?" required />
+          </label>
+          <label>
+            Message
+            <textarea id="message" rows="6" placeholder="Tell us what's going on…" required></textarea>
+          </label>
+          <div class="actions">
+            <button type="submit" class="primary">Send message ✉</button>
+            <a class="btn alt" href="mailto:storyfied@mzhang.dev">Email us directly</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // No backend: the form opens the user's mail client pre-filled.
+      document.getElementById('support-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var subject = encodeURIComponent(document.getElementById('subject').value || 'Storyfied support');
+        var body = encodeURIComponent(document.getElementById('message').value || '');
+        window.location.href =
+          'mailto:storyfied@mzhang.dev?subject=' + subject + '&body=' + body;
+      });
+    </script>
+  </body>
+</html>
