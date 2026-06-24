@@ -26,3 +26,5 @@ npm-debug.log*
 documentation
 
 DEPLOY.md
+
+run_package.command

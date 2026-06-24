@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Storyfied",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reads the ticket you're viewing on any board and uses Gemini to produce an AI-ready, editable summary.",
   "action": {
     "default_popup": "index.html",
