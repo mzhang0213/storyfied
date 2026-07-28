@@ -3,7 +3,7 @@ import { getSettings, saveSettings, DEFAULTS } from '../lib/storage.js'
 
 // A short, current list of Gemini models. The field is also free-text so the
 // user can type any model id the API supports.
-const MODEL_OPTIONS = ['gemini-2.5-flash', 'gemini-2.5-pro', 'gemini-2.0-flash', 'gemini-1.5-flash']
+const MODEL_OPTIONS = ['gemini-flash-latest']
 
 const iconUrl = chrome.runtime.getURL('icons/icon-128.png')
 
